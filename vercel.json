@@ -23,5 +23,13 @@
         "src": "/(.*)",
         "dest": "DiabetesCode/wsgi.py"
       }
+        
     ]
+    
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "vercel-python@3.9"
+    }
   }
+}
+  
