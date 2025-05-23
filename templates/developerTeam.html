@@ -1,0 +1,145 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Team</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p {
+            font-family: 'Poppins', 'sans-serif';
+        }
+
+        body {
+            background-image: url("{% static 'Diabetes/images/developerTeamBG-1.jpg' %}");
+            background-size: cover;
+        }
+
+        .title h1 {
+            text-align: center;
+            font-size: 45px;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .extra {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 45%;
+            margin: auto;
+            border: 2px solid white;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+            border-radius: 20px;
+            margin-top: 15px;
+        }
+
+        img { 
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        .img {
+            width: 25%;
+        }
+
+        .details {
+            width: 90%;
+            /* text-align: center; */
+        }
+
+    
+
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <h1>
+            About Developer Team
+        </h1>
+    </div>    
+    </div>
+    <div class="extra">
+        <div class="info">
+            <div class="img">
+                <img src="{% static 'Diabetes/images/dhruv_lad.jpg' %}" alt="photo">
+            </div>
+            <div class="details">
+                <h3>
+                    Dhruv Lad
+                </h3>
+                <h5>
+                    CSE(AI&ML) <br>
+                    Shree Dhanvantary College of Engineering and Technology
+                </h5>
+            </div>
+        </div>
+        <div class="info">
+            <div class="img">
+                <img src="{% static 'Diabetes/images/dhruv_d.jpeg' %}" alt="photo">
+            </div>
+            <div class="details">
+                <h3>
+                    Dhruv Daherawala
+                </h3>
+                <h5>
+                    CSE(AI&ML) <br>
+                    Shree Dhanvantary College of Engineering and Technology
+                </h5>
+            </div>
+        </div>
+        <div class="info">
+            <div class="img">
+                <img src="{% static 'Diabetes/images/harsh_marvaniya.png' %}" alt="photo">
+            </div>
+            <div class="details">
+                <h3>
+                    Harsh Marvaniya
+                </h3>
+                <h5>
+                    CSE(AI&ML) <br>
+                    Shree Dhanvantary College of Engineering and Technology
+                </h5>
+            </div>
+        </div>
+        <div class="info">
+            <div class="img">
+                <img src="{% static 'Diabetes/images/raj_vaghasiya.jpeg' %}" alt="photo">
+            </div>
+            <div class="details">
+                <h3>
+                    Raj Vaghasiya
+                </h3>
+                <h5>
+                    CSE(AI&ML) <br>
+                    Shree Dhanvantary College of Engineering and Technology
+                </h5>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

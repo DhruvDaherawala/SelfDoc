@@ -1,0 +1,182 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'Diabetes/images/profile.jpg' %}" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/087cc80ec6.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>Suggestions</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            /* height: 50vw; */
+            scroll-behavior: smooth;
+            /* background: url("{% static 'Diabetes/images/bg.jpg' %}"); */
+            background-size: cover;
+        }
+
+        .suggestion-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 55vw;
+            padding: 0 6vw;
+            background-color: rgb(229, 240, 247);
+            background-image: url("{% static 'Diabetes/images/profile.jpg' %}");
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            
+        }
+
+        .suggestion-content .content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 2vw;
+            background-color: rgba(255, 255, 255, 0.392);
+            border: 2px solid white ;
+            backdrop-filter: blur(7px);
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px -6px rgba(0, 0, 0, 0.53);
+        }
+
+        .content h1 {
+            text-align: center;
+            font-size: 4vw;
+        }
+
+        .content h2 {
+            text-align: center;
+            font-size: 2vw;
+        }
+
+        .content p{
+            margin-top: 1.5vw;
+            font-size: 1.7vw;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1000px) {
+            .suggestion-content {
+                height: 80vw;
+            }
+
+            .content h1{
+                font-size: 6.5vw;
+            }
+
+            .content h2 {
+                font-size: 3.5vw;
+            }
+
+            .content p {
+                font-size: 2.2vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .suggestion-content {
+                height: 100vw;
+            }
+
+            .content h1{
+                font-size: 7vw;
+            }
+
+            .content h2 {
+                font-size: 4vw;
+            }
+
+            .content p {
+                font-size: 2.4vw;
+            }
+        }
+
+        @media (max-width: 600px) {
+            
+            .suggestion-content {
+                height: 220vw;
+            }
+
+            .content h1 {
+                font-size: 7vw;
+            }
+
+            .content h2 {
+                font-size: 4vw;
+            }
+
+            .content p{ 
+                font-size: 4vw;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="suggestion-content">
+            <div class="content">
+                <h1>
+                    Suggestions
+                </h1>
+                <h2>
+                    You can do these things to stay safe from diabetes
+                </h2>
+                <p>
+                    1. Monitor blood sugar as advised. <br>
+
+                    2. Take prescribed meds as directed. <br>
+
+                    3. Eat a balanced diet, watch carbs. <br>
+
+                    4. Exercise regularly, consult your doctor. <br>
+
+                    5. Maintain a healthy weight. <br>
+
+                    6. Manage stress through relaxation techniques. <br>
+
+                    7. Schedule regular check-ups, eye/foot exams, BP, cholesterol. <br>
+
+                    8. Daily foot care and proper footwear. <br>
+
+                    9. Store meds correctly. <br>
+
+                    10. Stay hydrated, choose water over sugary drinks. <br>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showMenu() {
+            const Menu = document.querySelector('.resp')
+            Menu.style.display = 'flex'
+        }
+
+        function hideMenu() {
+            const Menu = document.querySelector('.resp')
+            Menu.style.display = 'none'
+        }
+    </script>
+</body>
+
+</html>

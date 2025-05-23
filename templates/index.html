@@ -1,0 +1,720 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'Diabetes/images/profile.jpg' %}" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/087cc80ec6.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <title>SelfDoc</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            scroll-behavior: smooth;
+            /* background: url("{% static 'Diabetes/images/bg.jpg' %}"); */
+            background-size: cover;
+        }
+
+        nav {
+            display: flex;
+            width: 100%;
+            height: 50px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 6vw;
+            color: black;
+            top: 0;
+            position: fixed;
+            overflow: hidden;
+            background-color: rgb(255, 255, 255);
+            /* border-bottom: 2px solid #f4675d; */
+            /* backdrop-filter: blur(10px); */
+            z-index: 999;
+        }
+
+        .nav-mid {
+            /* display: flex; */
+            width: 70%;
+            /* flex-direction: row; */
+        }
+
+        .nav-left h2 {
+            font-size: 30px;
+        }
+
+        .nav-left h2 span {
+            color: rgb(255, 0, 81);
+        }
+
+        .nav-mid ul {
+            display: flex;
+            flex-wrap: wrap;
+            align-self: center;
+            justify-content: end;
+        }
+
+        .nav-mid ul li {
+            list-style: none;
+            padding: 0 1.5vw;
+            align-items: end;
+        }
+
+        .nav-mid ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+        }
+
+        .nav-mid ul li a {
+            position: relative;
+        }
+
+        .nav-mid ul li a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: rgb(255, 0, 81);
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.2s;
+        }
+
+        .nav-mid ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* .nav-right form input[type=submit] {
+            padding: .5vw 1vw;
+            background-color: rgb(255, 0, 81);
+            border-radius: 10px;
+            color: white;
+            font-weight: 500;
+            font-size: 15px;
+        } */
+
+        .nav-mid ul .menu i {
+            padding: 1vw 1.5vw;
+            display: none;
+        }
+
+        .nav-mid ul .icons .menu {
+            padding: 0;
+        }
+
+        .nav-mid .resp {
+            position: fixed;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            height: 29%;
+            width: 100%;
+            z-index: 999;
+            /* background-color: rgba(255, 255, 255, .5); */
+            display: none;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-items: flex-start;
+            padding: 10px 5vw;
+            line-height: 4vh;
+            backdrop-filter: blur(4px);
+            background-color: rgba(255, 255, 255, 0.696);
+            box-shadow: -2px 25px 28px -22px rgba(0, 0, 0, 0.87);
+        }
+
+        .resp li {
+            width: 100%;
+            text-align: center;
+            font-size: 4vw;
+            border-bottom: 2px solid rgb(255, 0, 81);
+        }
+
+
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 50vw;
+            background-color: rgb(193, 218, 248);
+            padding: 0 6vw;
+            /* background-image: url("{% static 'Diabetes/images/5.png' %}");
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat; */
+        }
+
+        .home .home-content {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            flex-direction: column;
+            width: 80%;
+            border: 2px solid transparent;
+            padding: 2vw 2vw;       
+            border-radius: 20px;
+            background-color: rgba(202, 236, 248, 0.466);
+            backdrop-filter: blur(10px);
+            box-shadow: 10px 10px 20px -6px rgba(0, 0, 0, 0.53);
+            /* background-image: url("{% static 'Diabetes/images/5.png' %}");
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat; */
+
+        }
+
+
+        .home-content h1 {
+            font-size: 4vw;
+        }
+
+        .home-content h1 span {
+            color: rgb(255, 0, 81);
+        }
+
+        .home-content h3 {
+            font-size: 2vw;
+        }
+
+        .home-content input[type=submit] {
+            padding: .5vw 1vw;
+            background-color: rgb(255, 0, 81);
+            border-radius: 10px;
+            border: 2px solid rgb(255, 0, 81);
+            color: white;
+            font-weight: 500;
+            font-size: 1.5vw;
+            margin-top: 1vw;
+            transition: all .2s;
+        }
+
+        .home-content input[type=submit]:hover {
+            background-color: transparent;
+            color: black;
+        }
+
+        .home-content p {
+            text-align: justify;
+            text-justify: inter-word;
+            font-size: 1.5vw;
+            margin-top: 2vw;
+            font-weight: 500;
+        }
+
+        .home-right {
+            width: 50%;
+        }
+
+        .home-right img {
+            width: 90%;
+        }
+
+        .about {
+            width: 100%;
+            height: 48vw;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: rgb(206, 226, 244);
+            padding: 0 6vw;
+        }
+
+        .about .about-left {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-left h1 {
+            font-size: 3.7vw;
+            text-align: center;
+            margin-bottom: 2vw;
+
+        }
+
+        .about-left p {
+            text-align: justify;
+            text-justify: inter-word;
+            padding-right: 2vw;
+            font-size: 1.5vw;
+        }
+
+        .about .about-right {
+            width: 40%;
+        }
+
+        .about-right img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 7px 11px 28px -2px rgba(0, 0, 0, 0.56);
+        }
+
+        .feedback {
+            width: 100%;
+            height: 48vw;
+            display: flex;
+            /* background-color: rgb(221, 241, 255); */
+            background-color: rgb(193, 218, 248);
+            align-items: center;
+            padding: 0 6vw;
+            background-image: url("{% static 'Diabetes/images/4.png' %}");
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+
+        }
+
+        .feedback .feed-right {
+            width: 50%;
+            padding: 2vw;
+            border: 2px solid transparent;
+            /* margin-right: 2vw; */
+            border-radius: 20px;
+            background-color: rgba(240, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            box-shadow: 10px 10px 20px -6px rgba(0, 0, 0, 0.53);
+        }
+
+        .feed-right h4 {
+            font-size: 1.5vw;
+        }
+
+        .feed-right p {
+            text-align: justify;
+            text-justify: inter-word;
+            font-size: 1vw;
+        }
+
+        .feedback .feed-left {
+            width: 50%;
+            padding: 2vw;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            background-color: rgba(227, 244, 255, 0.1);
+            box-shadow: 10px 10px 20px -6px rgba(0, 0, 0, 0.53);
+            /* padding-right: 2vw; */
+            margin-right: 2vw;
+            backdrop-filter: blur(5px);
+        }
+
+        .feed-left h1 {
+            text-align: center;
+            font-size: 2vw;
+        }
+
+        .feed-left input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 1.5vw;
+            border: none;
+            background-color: rgba(168, 223, 242, 0.816);
+            border-bottom: 2px solid rgb(255, 0, 81);
+            border-radius: 10px;
+        }
+
+        .feed-left textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 1.5vw;
+            border: none;
+            background-color: rgba(168, 223, 242, 0.816);
+            border-bottom: 2px solid rgb(255, 0, 81);
+            border-radius: 10px;
+        }
+
+        .feed-left input[type=submit] {
+            color: white;
+            background-color: rgb(255, 0, 81);
+            border-bottom: none;
+            border: 2px solid rgb(255, 0, 81);
+            font-weight: 500;
+            transition: all .2s;
+        }
+
+        .feed-left input[type=submit]:hover {
+            background-color: transparent;
+            color: black;
+        }
+
+        @media (max-width: 1100px) {
+
+            .feedback {
+                height: 70vw;
+            }
+        }
+
+        @media (max-width: 850px) {
+
+            nav {
+                height: 50px;
+                padding: 0 5vw;
+                overflow: hidden;
+            }
+
+            .nav-mid ul li {
+                display: none;
+            }
+
+            .nav-mid ul .menu i {
+                display: initial;
+
+            }
+
+            .nav-mid .resp li {
+                display: block;
+                border-bottom: 2px solid rgb(255, 0, 81);
+                width: 100%;
+            }
+
+            .nav-mid .resp .menu i {
+                font-size: 5vw;
+            }
+
+
+            .nav-mid ul .menu {
+                font-size: 4vw;
+            }
+
+            .nav-mid ul {
+                justify-content: flex-end;
+            }
+
+            /* .nav-right {
+                display: none;
+            } */
+
+        }
+
+        @media (max-width: 768px) {
+
+            .nav-mid .resp li {
+                font-size: 2vw;
+            }
+
+            .home {
+                height: 60vw;
+            }
+
+            .home-content h1 {
+                font-size: 4.6vw;
+            }
+
+            .home-content h1 span {
+                color: rgb(255, 0, 81);
+            }
+
+            .home-content h3 {
+                margin-top: 2vw;
+                font-size: 3.7vw;
+            }
+
+            .home-content input[type=submit] {
+                font-size: 3vw;
+            }
+
+            .home-content p {
+                text-align: justify;
+                text-justify: inter-word;
+                font-size: 2vw;
+                margin-top: 5vw;
+            }
+
+            .feedback {
+                height: 90vw;
+            }
+
+            .feed-left h1 {
+                font-size: 3.5vw;
+            }
+
+            .feed-right h4 {
+                font-size: 3vw;
+            }
+
+            .feed-right p {
+                font-size: 1.5vw;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .nav-mid .resp li {
+                font-size: 3vw;
+            }
+
+            .home {
+                height: 200vw;
+                flex-direction: column-reverse;
+            }
+
+            .home .home-content {
+                width: 100%;
+                margin-bottom: 5vw;
+                height: 50vw;
+            }
+
+            .home-content h1 {
+                font-size: 8vw;
+            }
+
+            .home-content h1 span {
+                color: rgb(255, 0, 81);
+            }
+
+            .home-content h3 {
+                margin-top: 2vw;
+                font-size: 6vw;
+            }
+
+            .home-content input[type=submit] {
+                font-size: 4vw;
+            }
+
+            .home-content p {
+                text-align: justify;
+                text-justify: inter-word;
+                font-size: 3vw;
+                margin-top: 5vw;
+            }
+
+            .home .home-right {
+                width: 100%;
+
+
+            }
+
+            .home-right img {
+                width: 100%;
+            }
+
+            .about {
+                flex-direction: column;
+                align-items: center;
+                height: 150vw;
+                padding: 6vw 6vw;
+            }
+
+            .about .about-left {
+                width: 100%;
+                height: 60vw;
+            }
+
+            .about-left h1 {
+                font-size: 7vw;
+
+            }
+
+            .about-left p {
+                font-size: 2.7vw;
+                padding-right: 0;
+
+            }
+
+            .about .about-right {
+                width: 70%;
+                height: 60vw;
+            }
+
+            .about-right img {
+                width: 100%;
+            }
+
+            .feedback {
+                flex-direction: column;
+                justify-content: center;
+                height: 220vw;
+            }
+
+            .feedback .feed-left {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 7vw;
+            }
+
+            .feed-left h1 {
+                font-size: 6vw;
+            }
+
+            .feedback .feed-right {
+                width: 100%;
+            }
+
+            .feed-right h4 {
+                font-size: 3.3vw;
+            }
+
+            .feed-right p {
+                font-size: 2.7vw;
+            }
+
+            .feed-left input {
+                width: 100%;
+                padding: 10px;
+                margin-top: 1.5vw;
+                border: none;
+                background-color: rgba(168, 223, 242, 0.5);
+                border-bottom: 2px solid rgb(255, 0, 81);
+                border-radius: 10px;
+            }
+
+            .feed-left textarea {
+
+                background-color: rgba(168, 223, 242, 0.5);
+            }
+        }
+
+
+        @keyframes inputAnimation {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <nav>
+            <div class="nav-left">
+                <h2>Self<span>Doc</span></h2>
+            </div>
+            <div class="nav-mid">
+                <ul class="resp" onclick=hidemenu()>
+                    <div class="menu" onclick=hideMenu()><i class="ri-close-fill"></i></div>
+                    <li><a href="index" onclick=hideMenu()>Home</a></li>
+                    <li><a href="predict" onclick=hideMenu()>Predict</a></li>
+                    <li><a href="suggestions.html" onclick=hideMenu()>Suggestions</a></li>
+                    <li><a href="#about" onclick=hideMenu()>About Us</a></li>
+                    <!-- <li><a href="#disclaimer" onclick=hideMenu()>Disclaimer</a></li> -->
+                    <li><a href="#feedback" onclick=hideMenu()>Feedback</a></li>
+                </ul>
+                <ul>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="predict">Predict</a></li>
+                    <li><a href="suggestions.html">Suggestions</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <!-- <li><a href="#disclaimer">Disclaimer</a></li> -->
+                    <li><a href="#feedback">Feedback</a></li>
+                    <div class="icons">
+                        <div class="menu" onclick=showMenu()><i class="ri-menu-3-fill"></i></div>
+                    </div>
+                </ul>
+            </div>
+            <!-- <div class="nav-right">
+                <form action="predict">
+                    <input type="submit" value="Predict Now">
+                </form>
+            </div> -->
+        </nav>
+
+        <div class="home" id="home">
+            <div class="home-right">
+                <img src="{% static 'Diabetes/images/home.png' %}" alt="">
+            </div>
+            <div class="home-content">
+                <h1>Welcome to <span>SelfDoc</span></h1>
+                <h3>Predict Your Diabetes</h3>
+                <form action="predict">
+                    <input type="submit" value="Predict Now">
+                </form>
+                <p>"Predicting your tomorrow's health today , Using AI."</p>
+            </div>
+        </div>
+
+        <div class="about" id="about">
+            <div class="about-left">
+                <h1>About Us</h1>
+                <p>
+                    Welcome to the Diabetes Prediction System, a collaborative effort by passionate Computer Science and
+                    Engineering students specializing in Artificial Intelligence and Machine Learning. As a dedicated
+                    college team, we aim to revolutionize healthcare through our predictive system. Committed to
+                    leveraging technology for real-world impact, our project strives to contribute to the advancement of
+                    diabetes management. Join us on this transformative journey as we apply our knowledge and skills to
+                    create innovative solutions at the intersection of AI, ML, and healthcare.
+                </p>
+            </div>
+            <div class="about-right">
+                <img src="{% static 'Diabetes/images/about_1.jpg' %}" alt="">
+            </div>
+        </div>
+
+
+        <div class="feedback" id="feedback">
+            <div class="feed-left">
+                <h1>Give Your Precious Feedback</h1>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Enter your Name" required>
+                    <br>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <br>
+                    <input type="tel" name="mobile" placeholder="Enter your mobile number" required>
+                    <br>
+                    <textarea name="feedback" rows="7" cols="50" placeholder="Your Precious Feedback"
+                        required></textarea><br>
+                    <div class="button">
+                        <input type="submit" value="Submit" onclick=alertmsg()>
+                    </div>
+
+                </form>
+            </div>
+            <div class="feed-right">
+                <h4>Disclaimer</h4>
+                <p>This website is created solely for the purpose of a university project. The information
+                    provided on
+                    this website is not intended to be a substitute for professional medical advice, diagnosis,
+                    or
+                    treatment. Always seek the advice of your physician or other qualified healthcare provider
+                    with any
+                    questions you may have regarding a medical condition. Never disregard professional medical
+                    advice or
+                    delay in seeking it because of something you have read on this website. Reliance on any
+                    information
+                    provided by this website is solely at your own risk.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showMenu() {
+            const Menu = document.querySelector('.resp')
+            Menu.style.display = 'flex'
+        }
+
+        function hideMenu() {
+            const Menu = document.querySelector('.resp')
+            Menu.style.display = 'none'
+        }
+
+        function alertmsg() {
+            alert('Thank you for giving your precious feedback');
+        }
+    </script>
+</body>
+
+</html>
